@@ -7,34 +7,29 @@ class Admin {
     private String name;
     private String email;
 
-    public Admin(int adminID, String name, String email) {
+    public Admin(int adminID,   String name,   String email) {
         this.adminID = adminID;
         this.name = name;
         this.email = email;
     }
 
-    public void createEmployeeAccount(String name, String birthday, String number, String position, String email) {
-        // Implementation code
-        System.out.println("Employee account created: " + name);
+    public void createEmployeeAccount(String name,   String birthday,   String number,   String position,   String email) {
+        System.out.println("Employee account created:   " + name);
     }
 
-    public void modifyEmployeeSalary(int employeeID, double newSalary) {
-        // Implementation code
+    public void modifyEmployeeSalary(int employeeID,   double newSalary) {
         System.out.println("Employee salary modified for employee ID " + employeeID + " to " + newSalary);
     }
 
-    public void manageLeaveRequest(int requestID, String action) {
-        // Implementation code
+    public void manageLeaveRequest(int requestID,   String action) {
         System.out.println("Leave request " + requestID + " has been " + action);
     }
 
-    public void modifySalaryDeduction(int employeeID, double newDeduction) {
-        // Implementation code
+    public void modifySalaryDeduction(int employeeID,   double newDeduction) {
         System.out.println("Salary deduction modified for employee ID " + employeeID + " to " + newDeduction);
     }
 
-    public void uploadGovernmentForm(String formType, byte[] formData) {
-        // Implementation code
+    public void uploadGovernmentForm(String formType,   byte[] formData) {
         System.out.println("Government form " + formType + " uploaded.");
     }
 }
@@ -46,7 +41,7 @@ class Employee {
     private String position;
     private String email;
 
-    public Employee(int employeeID, String name, String position, String email) {
+    public Employee(int employeeID,   String name,   String position,   String email) {
         this.employeeID = employeeID;
         this.name = name;
         this.position = position;
@@ -54,27 +49,22 @@ class Employee {
     }
 
     public void viewWorkHoursSummary() {
-        // Implementation code
         System.out.println("Displaying work hours summary for " + name);
     }
 
     public void viewSalaryComputation() {
-        // Implementation code
         System.out.println("Displaying salary computation for " + name);
     }
 
     public void viewSalaryDeductions() {
-        // Implementation code
         System.out.println("Displaying salary deductions for " + name);
     }
 
     public void viewTaxInformation() {
-        // Implementation code
         System.out.println("Displaying tax information for " + name);
     }
 
-    public void requestLeave(String startDate, String endDate, String typeOfLeave) {
-        // Implementation code
+    public void requestLeave(String startDate,   String endDate,   String typeOfLeave) {
         System.out.println("Leave requested by " + name + " from " + startDate + " to " + endDate + " for " + typeOfLeave);
     }
 }
@@ -93,21 +83,19 @@ class Portal {
 
     public void addAdmin(Admin admin) {
         admins.add(admin);
-        System.out.println("Admin added: " + admin);
+        System.out.println("Admin added:   " + admin);
     }
 
     public void addEmployee(Employee employee) {
         employees.add(employee);
-        System.out.println("Employee added: " + employee);
+        System.out.println("Employee added:   " + employee);
     }
 
-    public void login(int userID, String password) {
-        // Implementation code
+    public void login(int userID,   String password) {
         System.out.println("User " + userID + " logged in.");
     }
 
     public void logout(int userID) {
-        // Implementation code
         System.out.println("User " + userID + " logged out.");
     }
 }
@@ -121,7 +109,7 @@ class LeaveRequest {
     private String typeOfLeave;
     private String status;
 
-    public LeaveRequest(int requestID, int employeeID, String startDate, String endDate, String typeOfLeave) {
+    public LeaveRequest(int requestID,   int employeeID,   String startDate,   String endDate,   String typeOfLeave) {
         this.requestID = requestID;
         this.employeeID = employeeID;
         this.startDate = startDate;
@@ -146,13 +134,12 @@ class GovernmentForm {
     private int formID;
     private String formType;
 
-    public GovernmentForm(int formID, String formType) {
+    public GovernmentForm(int formID,   String formType) {
         this.formID = formID;
         this.formType = formType;
     }
 
     public void downloadForm() {
-        // Implementation code
         System.out.println("Form " + formType + " downloaded.");
     }
 }
@@ -162,28 +149,28 @@ public class Main {
     public static void main(String[] args) {
         Portal portal = new Portal(1);
         
-        Admin admin1 = new Admin(1, "Admin One", "admin1@motorph.com");
-        Employee employee1 = new Employee(1, "Employee One", "Developer", "employee1@motorph.com");
+        Admin admin1 = new Admin(1,   "Admin One",   "admin1@motorph.com");
+        Employee employee1 = new Employee(1,   "Employee One",   "Developer",   "employee1@motorph.com");
         
         portal.addAdmin(admin1);
         portal.addEmployee(employee1);
         
-        admin1.createEmployeeAccount("Employee Two", "1990-01-01", "1234567890", "Tester", "employee2@motorph.com");
-        admin1.modifyEmployeeSalary(1, 50000);
+        admin1.createEmployeeAccount("Employee Two",   "1990-01-01",   "1234567890",   "Tester",   "employee2@motorph.com");
+        admin1.modifyEmployeeSalary(1,   50000);
         
-        LeaveRequest leaveRequest1 = new LeaveRequest(1, 1, "2024-06-01", "2024-06-10", "vacation");
+        LeaveRequest leaveRequest1 = new LeaveRequest(1,   1,   "2024-06-01",   "2024-06-10",   "vacation");
         leaveRequest1.approveRequest();
         
-        GovernmentForm form1 = new GovernmentForm(1, "BIR Form");
+        GovernmentForm form1 = new GovernmentForm(1,   "BIR Form");
         form1.downloadForm();
         
         employee1.viewWorkHoursSummary();
         employee1.viewSalaryComputation();
         employee1.viewSalaryDeductions();
         employee1.viewTaxInformation();
-        employee1.requestLeave("2024-07-01", "2024-07-10", "sick leave");
+        employee1.requestLeave("2024-07-01",   "2024-07-10",   "sick leave");
         
-        portal.login(1, "password");
+        portal.login(1,   "password");
         portal.logout(1);
     }
 }
